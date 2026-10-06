@@ -1,0 +1,114 @@
+/* ===== Tela de instrucoes ===== */
+.how-to-screen {
+    align-items: stretch;
+    gap: 22px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 6px 14px;
+    scrollbar-color: var(--mint) var(--night-soft);
+}
+
+.instructions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.instructions-header .menu-kicker {
+    text-align: right;
+}
+
+.back-button {
+    min-height: 42px;
+    padding: 9px 14px;
+    font-size: 0.9rem;
+}
+
+.how-to-screen > h1 {
+    align-self: flex-start;
+    color: var(--paper);
+    font-size: 2.8rem;
+    text-align: left;
+}
+
+.instructions-section {
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+}
+
+.instructions-section h2 {
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* ===== Controles e atalhos ===== */
+.controls-list,
+.phase-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.controls-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(64, 91, 75, 0.7);
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+kbd {
+    display: inline-block;
+    min-width: 28px;
+    margin-right: 3px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2px 6px;
+    background: var(--panel);
+    color: var(--lime);
+    font: inherit;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ===== Progressao por fases ===== */
+.phase-list li {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(64, 91, 75, 0.7);
+}
+
+.phase-score {
+    color: var(--lime);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.1rem;
+}
+
+.phase-list strong {
+    color: var(--paper);
+}
+
+.phase-list p {
+    margin-top: 5px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* ===== Ajustes para telas pequenas ===== */
+@media (max-width: 480px) {
+    .how-to-screen {
+        max-height: calc(100vh - 40px);
+        padding-inline: 2px;
+    }
+
+    .phase-list li {
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 8px;
+    }
+}

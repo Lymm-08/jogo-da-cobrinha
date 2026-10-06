@@ -1,0 +1,78 @@
+/* ===== Paleta e estrutura base ===== */
+:root {
+    color-scheme: dark;
+    --night: #15221d;
+    --night-soft: #1e3028;
+    --panel: #23382f;
+    --panel-light: #2b4338;
+    --line: #405b4b;
+    --paper: #f4edda;
+    --muted: #b8c5b8;
+    --lime: #d8ef76;
+    --mint: #78c8a8;
+    --coral: #f28b72;
+    --gold: #f2c96d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    background-color: var(--night);
+    background-image:
+        linear-gradient(rgba(120, 200, 168, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120, 200, 168, 0.045) 1px, transparent 1px),
+        linear-gradient(145deg, #1b2d24, var(--night) 58%, #2b271e);
+    background-size: 32px 32px, 32px 32px, cover;
+    color: var(--paper);
+    font-family: 'Trebuchet MS', 'Avenir Next', sans-serif;
+}
+
+.app-shell {
+    width: min(100%, 760px);
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.screen[hidden] {
+    display: none;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 0.98;
+    text-align: center;
+}
+
+h1 strong {
+    color: var(--lime);
+    font-weight: inherit;
+}
+
+/* ===== Espacamento para telas pequenas ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+}

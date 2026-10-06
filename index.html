@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Metadados e estilos da pagina -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Cobrinha - Codespaces</title>
+
+    <!-- Estilos separados por responsabilidade -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/instructions.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/motion.css">
+</head>
+
+<body>
+    <main class="app-shell">
+        <!-- Menu inicial com as duas opcoes principais -->
+        <section id="menu-screen" class="screen menu-screen" aria-labelledby="menu-title">
+            <p class="menu-kicker">ARCADE · JOGO 01</p>
+            <div class="menu-art" aria-hidden="true">
+                <span class="pixel-snake pixel-head"></span>
+                <span class="pixel-snake pixel-body-one"></span>
+                <span class="pixel-snake pixel-body-two"></span>
+                <span class="pixel-snake pixel-body-three"></span>
+                <span class="pixel-snake pixel-body-four"></span>
+                <span class="pixel-food"></span>
+            </div>
+            <h1 id="menu-title"><span>Jogo da</span><strong>Cobrinha</strong></h1>
+            <div class="menu-actions">
+                <button id="play-button" class="action-button primary-button" type="button">Jogar</button>
+                <button id="how-to-button" class="action-button secondary-button" type="button">Guia do jogador</button>
+            </div>
+        </section>
+
+        <!-- Instrucoes de controles, itens e progressao -->
+        <section id="how-to-screen" class="screen how-to-screen" aria-labelledby="how-to-title" hidden>
+            <div class="instructions-header">
+                <button id="back-button" class="back-button" type="button">← Menu</button>
+                <p class="menu-kicker">GUIA DO JOGADOR</p>
+            </div>
+            <h1 id="how-to-title">Como <strong>jogar</strong></h1>
+
+            <section class="instructions-section" aria-labelledby="controls-title">
+                <h2 id="controls-title">Controles</h2>
+                <ul class="controls-list">
+                    <li><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> Movem a cobra.</li>
+                    <li><kbd>Espaço</kbd> Pausa a partida; escolha uma direção para continuar.</li>
+                    <li>Coma as frutas para ganhar 10 pontos e crescer. As laterais dão a volta para o outro lado.</li>
+                    <li>Você perde ao bater no próprio corpo, em uma bomba ou em uma parede móvel. A cobra pode atravessar as bordas e usar os portais.</li>
+                </ul>
+            </section>
+
+            <section class="instructions-section" aria-labelledby="phases-title">
+                <h2 id="phases-title">Fases e novidades</h2>
+                <ol class="phase-list">
+                    <li><span class="phase-score">0–99</span><div><strong>Fase 1 · Começo</strong><p>Três frutas aparecem no tabuleiro. Cada fruta some após 10 segundos se não for comida.</p></div></li>
+                    <li><span class="phase-score">100–199</span><div><strong>Fase 2 · Bombas</strong><p>Bombas aparecem por 8 segundos. Encostar em uma encerra a partida.</p></div></li>
+                    <li><span class="phase-score">200–299</span><div><strong>Fase 3 · Portais</strong><p>Dois portais transportam a cobra. Eles duram 15 segundos e, após uma pausa curta, reaparecem em outros lugares.</p></div></li>
+                    <li><span class="phase-score">300–399</span><div><strong>Fase 4 · Poção</strong><p>A poção roxa faz a cobra encolher em até cinco segmentos. Pegue-a antes que suma.</p></div></li>
+                    <li><span class="phase-score">400–499</span><div><strong>Fase 5 · Paredes móveis</strong><p>Quatro paredes aparecem no centro e mudam de lugar a cada 15 segundos.</p></div></li>
+                    <li><span class="phase-score">500+</span><div><strong>Sobrevivência</strong><p>A cobra acelera 10% a cada 50 pontos. As novidades das fases anteriores continuam no jogo.</p></div></li>
+                </ol>
+            </section>
+        </section>
+
+        <!-- Partida e placar -->
+        <section id="game-screen" class="screen game-screen" aria-labelledby="game-title" hidden>
+            <h1 id="game-title">Jogo da Cobrinha</h1>
+            <div id="scoreboard">
+                <div class="score-box">Pontos: <span id="score">0</span></div>
+                <div class="score-box">Recorde: <span id="high-score">0</span></div>
+            </div>
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div id="game-over-text" role="status" aria-live="polite">Game Over! Pressione ESPAÇO para reiniciar.</div>
+        </section>
+    </main>
+
+    <!-- Desenho do jogo e regras da partida -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

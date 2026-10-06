@@ -1,0 +1,27 @@
+/* ===== Animacoes da interface ===== */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+}
+
+@keyframes screen-arrive {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes art-enter {
+    from { opacity: 0; transform: translateY(8px) rotate(-7deg); }
+    to { opacity: 1; transform: translateY(0) rotate(-7deg); }
+}
+
+/* ===== Preferencia por movimento reduzido ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
