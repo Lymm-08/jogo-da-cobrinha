@@ -18,6 +18,13 @@ const languageButton = document.getElementById("language-button");
 const languageBackButton = document.getElementById("language-back-button");
 const backButton = document.getElementById("back-button");
 const gameBackButton = document.getElementById("game-back-button");
+const screens = {
+    menu: menuScreen,
+    language: languageScreen,
+    guide: howToScreen,
+    game: gameScreen
+};
+let currentScreen = "menu";
 const tileCount = canvas.width / GAME_CONFIG.gridSize;
 const level = createLevelSystem(tileCount);
 const render = createRenderer(canvas, GAME_CONFIG);
@@ -39,6 +46,45 @@ const state = {
 };
 
 highScoreElement.textContent = state.highScore;
+
+function showScreen(screenName) {
+    const nextScreen = screens[screenName];
+    if (!nextScreen) {
+        throw new RangeError(`Unknown screen: ${screenName}`);
+    }
+
+    if (currentScreen === "game" && screenName !== "game") {
+        clearInterval(state.gameInterval);
+        state.gameInterval = null;
+        state.gameStarted = false;
+        state.isMoving = false;
+        state.isPaused = false;
+        state.pauseStartedAt = null;
+    }
+
+    Object.entries(screens).forEach(([name, screen]) => {
+        screen.hidden = name !== screenName;
+    });
+    currentScreen = screenName;
+
+    if (screenName === "game" && !state.gameStarted) {
+        startGame();
+    }
+}
+
+function navigateTo(screenName) {
+    if (screenName === currentScreen) return;
+
+    history.pushState({ ...history.state, snakeScreen: screenName }, "");
+    showScreen(screenName);
+}
+
+window.addEventListener("popstate", event => {
+    const screenName = Object.hasOwn(screens, event.state?.snakeScreen)
+        ? event.state.snakeScreen
+        : "menu";
+    showScreen(screenName);
+});
 
 // ===== Inicio, velocidade e loop principal =====
 function createInitialSnakePart() {
@@ -240,28 +286,19 @@ window.addEventListener("keydown", event => {
 
 // ===== Navegacao entre menu, instrucoes e partida =====
 playButton.addEventListener("click", () => {
-    menuScreen.hidden = true;
-    languageScreen.hidden = true;
-    howToScreen.hidden = true;
-    gameScreen.hidden = false;
-    startGame();
+    navigateTo("game");
 });
 
 howToButton.addEventListener("click", () => {
-    menuScreen.hidden = true;
-    languageScreen.hidden = true;
-    howToScreen.hidden = false;
+    navigateTo("guide");
 });
 
 languageButton.addEventListener("click", () => {
-    menuScreen.hidden = true;
-    languageScreen.hidden = false;
+    navigateTo("language");
 });
 
 languageBackButton.addEventListener("click", () => {
-    languageScreen.hidden = true;
-    menuScreen.hidden = false;
-    languageButton.focus();
+    history.back();
 });
 
 document.querySelectorAll("[data-language]").forEach(button => {
@@ -272,23 +309,15 @@ document.querySelectorAll("[data-language]").forEach(button => {
 });
 
 backButton.addEventListener("click", () => {
-    howToScreen.hidden = true;
-    menuScreen.hidden = false;
-    playButton.focus();
+    history.back();
 });
 
 gameBackButton.addEventListener("click", () => {
-    clearInterval(state.gameInterval);
-    state.gameStarted = false;
-    state.isMoving = false;
-    state.isPaused = false;
-    state.pauseStartedAt = null;
-    gameScreen.hidden = true;
-    menuScreen.hidden = false;
-    playButton.focus();
+    history.back();
 });
 
 // ===== Preparacao da tela inicial =====
 level.reset(state.snake, state.nextDx, state.nextDy);
-gameScreen.hidden = true;
+history.replaceState({ ...history.state, snakeScreen: "menu" }, "");
+showScreen("menu");
 draw();

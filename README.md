@@ -1,70 +1,66 @@
-# Jogo da Cobrinha
+# Snake Game
 
-Jogo de cobrinha para navegador, feito com HTML, CSS e JavaScript nativo. Inclui menu, instruções, pontuação, recorde local e fases com itens e obstáculos.
+A browser-based snake game built with vanilla HTML, CSS, and JavaScript. It features a menu, player guide, score tracking, a local high score, and levels with items and obstacles.
 
-O menu permite escolher entre Português (Brasil) e English (United States). A escolha é salva no navegador e traduz o menu, o guia e as mensagens do jogo.
+Choose between Portuguese (Brazil) and English (United States) from the menu. Your choice is saved in the browser and translates the menu, guide, and in-game messages.
 
-## Executar
+## Run the game
 
-Não é necessário instalar dependências nem usar Python. Como o jogo usa módulos JavaScript, execute-o por um servidor local, não diretamente como arquivo:
+No dependencies or Python are required. Since the game uses JavaScript modules, run it from a local web server rather than opening the file directly:
 
-1. Abra a pasta do projeto no VS Code.
-2. Instale a extensão **Live Server**.
-3. Abra o `index.html` e clique em **Go Live** na barra inferior, ou clique com o botão direito no arquivo e selecione **Open with Live Server**.
-4. O jogo será aberto no navegador.
+1. Open the project folder in VS Code.
+2. Install the **Live Server** extension.
+3. Open `index.html` and click **Go Live** in the status bar, or right-click the file and select **Open with Live Server**.
+4. The game will open in your browser.
 
-## Demonstração
+## Screenshots
 
-### Início
+### Main menu
 
-![Menu inicial do jogo](screenshots/menu-inicial.png)
+![Snake game main menu in English](screenshots/menu-inicial-english.png)
 
-### Instruções
+### Language selection
 
-![Controles do guia do jogador](screenshots/guia-do-jogador.png)
+![Language selection screen](screenshots/troca-de-idioma-english.png)
 
-![Fases e novidades do jogo](screenshots/fases-do-jogo.png)
+### Player guide
 
-### Jogo rodando
+![Player guide controls in English](screenshots/guia-ingles-controles.png)
 
-![Partida em andamento com portais e frutas](screenshots/partida-em-andamento.png)
+![Player guide phases and features in English](screenshots/guia-ingles-fases.png)
 
-### Fim de jogo
+### Gameplay
 
-![Tela de fim de jogo](screenshots/fim-de-jogo.png)
+![Snake game in progress](screenshots/partida-english.png)
 
-<!-- Opcional: adicione um vídeo e substitua o caminho abaixo.
-[Assistir ao vídeo da demonstração](screenshots/video.mp4)
--->
+## How to play
 
-## Como jogar
+- Select **Play** from the menu and use the arrow keys to move the snake.
+- Select **Languages** from the menu to switch between Portuguese - BR and English - US.
+- Use **← Back** to leave a game and return to the menu; in the guide, use **← Menu** to return.
+- Press **Space** to pause; choose a direction to continue.
+- Each fruit is worth 10 points and makes the snake grow. Up to three fruits appear on the board, each for 10 seconds.
+- The edges wrap around to the opposite sides of the board.
+- You lose if you collide with your own body, a bomb, or a moving wall.
+- Filling every cell on the board wins the game.
 
-- Selecione **Jogar** no menu e use as setas para mover a cobra.
-- Selecione **Idiomas** no menu para trocar entre Português - BR e English - US.
-- Use **← Voltar** para sair da partida e voltar ao menu; no guia, use **← Menu** para retornar.
-- Pressione **Espaço** para pausar; escolha uma direção para continuar.
-- Cada fruta vale 10 pontos e faz a cobra crescer. Há até três frutas no tabuleiro, cada uma por 10 segundos.
-- As bordas conectam os lados opostos do tabuleiro.
-- Você perde ao colidir com o próprio corpo, uma bomba ou uma parede móvel.
-- Preencher todas as casas do tabuleiro resulta em vitória.
+## Phases
 
-## Fases
-
-| Pontuação | Novidade |
+| Score | Feature |
 | --- | --- |
-| 0–99 | Três frutas disponíveis; cada uma desaparece após 10 segundos. |
-| 100–199 | Bombas aparecem por até 8 segundos. Após sumirem, podem surgir novamente. |
-| 200–299 | Dois portais transportam a cobra. Duram 15 segundos e reaparecem em outras posições após uma pausa. |
-| 300–399 | Poção roxa que reduz o comprimento da cobra em até cinco segmentos. |
-| 400–499 | Quatro paredes móveis no centro do tabuleiro; mudam de posição a cada 15 segundos. |
-| 500+ | Sobrevivência: a velocidade aumenta a cada 50 pontos, e as novidades anteriores continuam ativas. |
+| 0–99 | Three fruits are available; each disappears after 10 seconds. |
+| 100–199 | Bombs appear for up to 8 seconds and may spawn again after disappearing. |
+| 200–299 | Two portals transport the snake. They last 15 seconds and reappear in new positions after a short break. |
+| 300–399 | A purple potion shrinks the snake by up to five segments. |
+| 400–499 | Four moving walls appear in the center of the board and move every 15 seconds. |
+| 500+ | Survival: the snake speeds up every 50 points, and features from previous phases remain active. |
 
-## Estrutura
+## Project structure
 
 ```text
 .
 ├── index.html
-├── script.js              # Entrada dos módulos
+├── script.js              # JavaScript module entry point
 ├── css/
 │   ├── base.css
 │   ├── game.css
@@ -72,8 +68,10 @@ Não é necessário instalar dependências nem usar Python. Como o jogo usa mód
 │   ├── menu.css
 │   └── motion.css
 └── js/
-    ├── config.js          # Configurações do jogo
-    ├── game.js            # Partida e controles
-    ├── level-system.js    # Fases, itens e obstáculos
-    └── renderer.js        # Desenho no canvas
+    ├── config.js          # Game configuration
+    ├── game.js            # Gameplay and controls
+    ├── level-system.js    # Phases, items, and obstacles
+    └── renderer.js        # Canvas rendering
 ```
+
+Português: [README.pt-BR.md](README.pt-BR.md)
