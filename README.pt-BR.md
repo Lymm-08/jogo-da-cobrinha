@@ -6,7 +6,7 @@ Escolha entre Português (Brasil) e English (United States) no menu. A preferên
 
 ## Executar
 
-Não é necessário instalar dependências nem usar Python. Como o jogo usa módulos JavaScript, execute-o por um servidor local, não diretamente como arquivo:
+Como o jogo usa módulos JavaScript, execute-o por um servidor local, não diretamente como arquivo:
 
 1. Abra a pasta do projeto no VS Code.
 2. Instale a extensão **Live Server**.
