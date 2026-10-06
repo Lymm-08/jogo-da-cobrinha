@@ -33,27 +33,6 @@ No dependencies or Python are required. Since the game uses JavaScript modules, 
 
 ![Snake game in progress](screenshots/partida-english.png)
 
-## How to play
-
-- Select **Play** from the menu and use the arrow keys to move the snake.
-- Select **Languages** from the menu to switch between Portuguese - BR and English - US.
-- Use **← Back** to leave a game and return to the menu; in the guide, use **← Menu** to return.
-- Press **Space** to pause; choose a direction to continue.
-- Each fruit is worth 10 points and makes the snake grow. Up to three fruits appear on the board, each for 10 seconds.
-- The edges wrap around to the opposite sides of the board.
-- You lose if you collide with your own body, a bomb, or a moving wall.
-- Filling every cell on the board wins the game.
-
-## Phases
-
-| Score | Feature |
-| --- | --- |
-| 0–99 | Three fruits are available; each disappears after 10 seconds. |
-| 100–199 | Bombs appear for up to 8 seconds and may spawn again after disappearing. |
-| 200–299 | Two portals transport the snake. They last 15 seconds and reappear in new positions after a short break. |
-| 300–399 | A purple potion shrinks the snake by up to five segments. |
-| 400–499 | Four moving walls appear in the center of the board and move every 15 seconds. |
-| 500+ | Survival: the snake speeds up every 50 points, and features from previous phases remain active. |
 
 ## Project structure
 
