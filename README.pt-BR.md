@@ -6,12 +6,7 @@ Escolha entre Português (Brasil) e English (United States) no menu. A preferên
 
 ## Executar
 
-Como o jogo usa módulos JavaScript, execute-o por um servidor local, não diretamente como arquivo:
-
-1. Abra a pasta do projeto no VS Code.
-2. Instale a extensão **Live Server**.
-3. Abra o `index.html` e clique em **Go Live** na barra inferior, ou clique com o botão direito no arquivo e selecione **Open with Live Server**.
-4. O jogo será aberto no navegador.
+**[Acesse o site completo aqui]([SEU_LINK_DO_GITHUB_PAGES_AQUI](https://lymm-08.github.io/jogo-da-cobrinha/))**
 
 ## Capturas de tela
 
