@@ -43,6 +43,7 @@ No dependencies or Python are required. Since the game uses JavaScript modules, 
 ├── css/
 │   ├── base.css
 │   ├── game.css
+│   ├── i18n.js
 │   ├── instructions.css
 │   ├── menu.css
 │   └── motion.css
