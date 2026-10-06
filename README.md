@@ -29,7 +29,7 @@ No dependencies or Python are required. Since the game uses JavaScript modules, 
 
 ![Player guide phases and features in English](screenshots/guia-ingles-fases.png)
 
-### Gameplay (wormholes)
+### Gameplay 
 
 ![Snake game in progress](screenshots/partida-english.png)
 
