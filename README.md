@@ -6,7 +6,7 @@ Choose between Portuguese (Brazil) and English (United States) from the menu. Yo
 
 ## Run the game
 
-No dependencies or Python are required. Since the game uses JavaScript modules, run it from a local web server rather than opening the file directly:
+ Since the game uses JavaScript modules, run it from a local web server rather than opening the file directly:
 
 1. Open the project folder in VS Code.
 2. Install the **Live Server** extension.
