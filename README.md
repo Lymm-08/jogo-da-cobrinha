@@ -23,11 +23,11 @@ Não é necessário instalar dependências nem usar Python. Como o jogo usa mód
 
 ![Fases e novidades do jogo](screenshots/fases-do-jogo.png)
 
-### Jogo rodando
+### Jogo em andamento (buracos de minhoca)
 
 ![Partida em andamento com portais e frutas](screenshots/partida-em-andamento.png)
 
-### Fim de jogo
+### Game Over
 
 ![Tela de fim de jogo](screenshots/fim-de-jogo.png)
 
@@ -35,26 +35,6 @@ Não é necessário instalar dependências nem usar Python. Como o jogo usa mód
 [Assistir ao vídeo da demonstração](screenshots/video.mp4)
 -->
 
-## Como jogar
-
-- Selecione **Jogar** no menu e use as setas para mover a cobra.
-- Use **← Voltar** para sair da partida e voltar ao menu; no guia, use **← Menu** para retornar.
-- Pressione **Espaço** para pausar; escolha uma direção para continuar.
-- Cada fruta vale 10 pontos e faz a cobra crescer. Há até três frutas no tabuleiro, cada uma por 10 segundos.
-- As bordas conectam os lados opostos do tabuleiro.
-- Você perde ao colidir com o próprio corpo, uma bomba ou uma parede móvel.
-- Preencher todas as casas do tabuleiro resulta em vitória.
-
-## Fases
-
-| Pontuação | Novidade |
-| --- | --- |
-| 0–99 | Três frutas disponíveis; cada uma desaparece após 10 segundos. |
-| 100–199 | Bombas aparecem por até 8 segundos. Após sumirem, podem surgir novamente. |
-| 200–299 | Dois portais transportam a cobra. Duram 15 segundos e reaparecem em outras posições após uma pausa. |
-| 300–399 | Poção roxa que reduz o comprimento da cobra em até cinco segmentos. |
-| 400–499 | Quatro paredes móveis no centro do tabuleiro; mudam de posição a cada 15 segundos. |
-| 500+ | Sobrevivência: a velocidade aumenta a cada 50 pontos, e as novidades anteriores continuam ativas. |
 
 ## Estrutura
 
