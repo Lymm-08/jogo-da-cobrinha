@@ -1,4 +1,5 @@
 import { GAME_CONFIG } from "./config.js";
+import { setLanguage, translate } from "./i18n.js";
 import { createLevelSystem } from "./level-system.js";
 import { createRenderer } from "./renderer.js";
 
@@ -8,10 +9,13 @@ const scoreElement = document.getElementById("score");
 const highScoreElement = document.getElementById("high-score");
 const gameOverText = document.getElementById("game-over-text");
 const menuScreen = document.getElementById("menu-screen");
+const languageScreen = document.getElementById("language-screen");
 const howToScreen = document.getElementById("how-to-screen");
 const gameScreen = document.getElementById("game-screen");
 const playButton = document.getElementById("play-button");
 const howToButton = document.getElementById("how-to-button");
+const languageButton = document.getElementById("language-button");
+const languageBackButton = document.getElementById("language-back-button");
 const backButton = document.getElementById("back-button");
 const gameBackButton = document.getElementById("game-back-button");
 const tileCount = canvas.width / GAME_CONFIG.gridSize;
@@ -55,7 +59,7 @@ function startGame() {
     state.nextDy = 0;
     state.snake = [createInitialSnakePart()];
     scoreElement.textContent = state.score;
-    gameOverText.textContent = "Escolha uma direção para começar.";
+    gameOverText.textContent = translate("startDirection");
     gameOverText.style.display = "block";
     level.reset(state.snake, state.nextDx, state.nextDy);
     draw();
@@ -100,7 +104,7 @@ function updateGame() {
         return;
     }
     if (level.hasBombAt(state.snake[0])) {
-        endGame("Game Over! Você comeu uma bomba. Pressione ESPAÇO para reiniciar.");
+        endGame("bombCollision");
         return;
     }
     if (level.isBoardFull(state.snake)) {
@@ -162,17 +166,17 @@ function draw() {
 }
 
 // ===== Fim da partida e controles =====
-function endGame(message = "Game Over! Pressione ESPAÇO para reiniciar.") {
+function endGame(messageKey = "gameOverRestart") {
     clearInterval(state.gameInterval);
     state.isGameOver = true;
     state.gameStarted = false;
     state.isMoving = false;
-    gameOverText.textContent = message;
+    gameOverText.textContent = translate(messageKey);
     gameOverText.style.display = "block";
 }
 
 function winGame() {
-    endGame("Você venceu! O tabuleiro está cheio. Pressione ESPAÇO para jogar novamente.");
+    endGame("win");
 }
 
 function setDirection(directionX, directionY) {
@@ -213,7 +217,7 @@ window.addEventListener("keydown", event => {
         state.isPaused = true;
         state.nextDx = state.dx;
         state.nextDy = state.dy;
-        gameOverText.textContent = "Jogo pausado. Escolha uma direção para continuar.";
+        gameOverText.textContent = translate("paused");
         gameOverText.style.display = "block";
         return;
     }
@@ -237,6 +241,7 @@ window.addEventListener("keydown", event => {
 // ===== Navegacao entre menu, instrucoes e partida =====
 playButton.addEventListener("click", () => {
     menuScreen.hidden = true;
+    languageScreen.hidden = true;
     howToScreen.hidden = true;
     gameScreen.hidden = false;
     startGame();
@@ -244,7 +249,26 @@ playButton.addEventListener("click", () => {
 
 howToButton.addEventListener("click", () => {
     menuScreen.hidden = true;
+    languageScreen.hidden = true;
     howToScreen.hidden = false;
+});
+
+languageButton.addEventListener("click", () => {
+    menuScreen.hidden = true;
+    languageScreen.hidden = false;
+});
+
+languageBackButton.addEventListener("click", () => {
+    languageScreen.hidden = true;
+    menuScreen.hidden = false;
+    languageButton.focus();
+});
+
+document.querySelectorAll("[data-language]").forEach(button => {
+    button.addEventListener("click", () => {
+        setLanguage(button.dataset.language);
+        languageBackButton.focus();
+    });
 });
 
 backButton.addEventListener("click", () => {

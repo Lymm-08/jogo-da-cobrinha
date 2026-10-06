@@ -112,6 +112,57 @@
     margin-top: 4px;
 }
 
+.language-screen {
+    min-height: min(480px, calc(100vh - 64px));
+    justify-content: center;
+    gap: 24px;
+}
+
+.language-screen > h1 {
+    font-size: 2.4rem;
+}
+
+.language-options {
+    width: min(100%, 340px);
+    display: grid;
+    gap: 12px;
+}
+
+.language-option {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 12px 18px;
+    background: var(--panel);
+    color: var(--paper);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+.language-option:hover,
+.language-option[aria-pressed="true"] {
+    transform: translateY(-2px);
+    border-color: var(--mint);
+    background: var(--panel-light);
+}
+
+.language-option:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.language-flag {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
 /* ===== Botoes ===== */
 .action-button,
 .back-button {
@@ -180,5 +231,13 @@
 
     .menu-screen h1 {
         font-size: 2.8rem;
+    }
+
+    .language-screen {
+        min-height: calc(100vh - 40px);
+    }
+
+    .language-screen > h1 {
+        font-size: 2rem;
     }
 }

@@ -2,6 +2,8 @@
 
 Jogo de cobrinha para navegador, feito com HTML, CSS e JavaScript nativo. Inclui menu, instruções, pontuação, recorde local e fases com itens e obstáculos.
 
+O menu permite escolher entre Português (Brasil) e English (United States). A escolha é salva no navegador e traduz o menu, o guia e as mensagens do jogo.
+
 ## Executar
 
 Não é necessário instalar dependências nem usar Python. Como o jogo usa módulos JavaScript, execute-o por um servidor local, não diretamente como arquivo:
@@ -38,6 +40,7 @@ Não é necessário instalar dependências nem usar Python. Como o jogo usa mód
 ## Como jogar
 
 - Selecione **Jogar** no menu e use as setas para mover a cobra.
+- Selecione **Idiomas** no menu para trocar entre Português - BR e English - US.
 - Use **← Voltar** para sair da partida e voltar ao menu; no guia, use **← Menu** para retornar.
 - Pressione **Espaço** para pausar; escolha uma direção para continuar.
 - Cada fruta vale 10 pontos e faz a cobra crescer. Há até três frutas no tabuleiro, cada uma por 10 segundos.

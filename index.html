@@ -5,7 +5,7 @@
     <!-- Metadados e estilos da pagina -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Cobrinha - Codespaces</title>
+    <title data-i18n="pageTitle">Jogo da Cobrinha - Codespaces</title>
 
     <!-- Estilos separados por responsabilidade -->
     <link rel="stylesheet" href="css/base.css">
@@ -19,7 +19,7 @@
     <main class="app-shell">
         <!-- Menu inicial com as duas opcoes principais -->
         <section id="menu-screen" class="screen menu-screen" aria-labelledby="menu-title">
-            <p class="menu-kicker">ARCADE · JOGO 01</p>
+            <p class="menu-kicker" data-i18n="menuKicker">ARCADE · JOGO 01</p>
             <div class="menu-art" aria-hidden="true">
                 <span class="pixel-snake pixel-head"></span>
                 <span class="pixel-snake pixel-body-one"></span>
@@ -28,40 +28,59 @@
                 <span class="pixel-snake pixel-body-four"></span>
                 <span class="pixel-food"></span>
             </div>
-            <h1 id="menu-title"><span>Jogo da</span><strong>Cobrinha</strong></h1>
+            <h1 id="menu-title"><span data-i18n="menuTitlePrefix">Jogo da</span><strong data-i18n="menuTitleName">Cobrinha</strong></h1>
             <div class="menu-actions">
-                <button id="play-button" class="action-button primary-button" type="button">Jogar</button>
-                <button id="how-to-button" class="action-button secondary-button" type="button">Guia do jogador</button>
+                <button id="play-button" class="action-button primary-button" type="button" data-i18n="play">Jogar</button>
+                <button id="how-to-button" class="action-button secondary-button" type="button" data-i18n="playerGuide">Guia do jogador</button>
+                <button id="language-button" class="action-button secondary-button" type="button" data-i18n="languages">Idiomas</button>
+            </div>
+        </section>
+
+        <section id="language-screen" class="screen language-screen" aria-labelledby="language-title" hidden>
+            <div class="instructions-header">
+                <button id="language-back-button" class="back-button" type="button" data-i18n="menuBack">← Menu</button>
+                <p class="menu-kicker" data-i18n="languageKicker">IDIOMAS</p>
+            </div>
+            <h1 id="language-title" data-i18n="chooseLanguage">Escolha seu idioma</h1>
+            <div class="language-options">
+                <button class="language-option" type="button" data-language="pt-BR" data-i18n-aria-label="portugueseAria">
+                    <span class="language-flag" aria-hidden="true">🇧🇷</span>
+                    <span data-i18n="portugueseBrazil">Português - BR</span>
+                </button>
+                <button class="language-option" type="button" data-language="en-US" data-i18n-aria-label="englishAria">
+                    <span class="language-flag" aria-hidden="true">🇺🇸</span>
+                    <span data-i18n="englishUs">English - US</span>
+                </button>
             </div>
         </section>
 
         <!-- Instrucoes de controles, itens e progressao -->
         <section id="how-to-screen" class="screen how-to-screen" aria-labelledby="how-to-title" hidden>
             <div class="instructions-header">
-                <button id="back-button" class="back-button" type="button">← Menu</button>
-                <p class="menu-kicker">GUIA DO JOGADOR</p>
+                <button id="back-button" class="back-button" type="button" data-i18n="menuBack">← Menu</button>
+                <p class="menu-kicker" data-i18n="playerGuide">GUIA DO JOGADOR</p>
             </div>
-            <h1 id="how-to-title">Como <strong>jogar</strong></h1>
+            <h1 id="how-to-title"><span data-i18n="howToPrefix">Como</span> <strong data-i18n="howToEmphasis">jogar</strong></h1>
 
             <section class="instructions-section" aria-labelledby="controls-title">
-                <h2 id="controls-title">Controles</h2>
+                <h2 id="controls-title" data-i18n="controls">Controles</h2>
                 <ul class="controls-list">
-                    <li><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> Movem a cobra.</li>
-                    <li><kbd>Espaço</kbd> Pausa a partida; escolha uma direção para continuar.</li>
-                    <li>Coma as frutas para ganhar 10 pontos e crescer. As laterais dão a volta para o outro lado.</li>
-                    <li>Você perde ao bater no próprio corpo, em uma bomba ou em uma parede móvel. A cobra pode atravessar as bordas e usar os portais.</li>
+                    <li><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> <span data-i18n="controlsMove">Movem a cobra.</span></li>
+                    <li><kbd data-i18n="space">Espaço</kbd> <span data-i18n="controlsPause">Pausa a partida; escolha uma direção para continuar.</span></li>
+                    <li data-i18n="controlsFood">Coma as frutas para ganhar 10 pontos e crescer. As laterais dão a volta para o outro lado.</li>
+                    <li data-i18n="controlsHazards">Você perde ao bater no próprio corpo, em uma bomba ou em uma parede móvel. A cobra pode atravessar as bordas e usar os portais.</li>
                 </ul>
             </section>
 
             <section class="instructions-section" aria-labelledby="phases-title">
-                <h2 id="phases-title">Fases e novidades</h2>
+                <h2 id="phases-title" data-i18n="phasesTitle">Fases e novidades</h2>
                 <ol class="phase-list">
-                    <li><span class="phase-score">0–99</span><div><strong>Fase 1 · Começo</strong><p>Três frutas aparecem no tabuleiro. Cada fruta some após 10 segundos se não for comida.</p></div></li>
-                    <li><span class="phase-score">100–199</span><div><strong>Fase 2 · Bombas</strong><p>Bombas aparecem por 8 segundos. Encostar em uma encerra a partida.</p></div></li>
-                    <li><span class="phase-score">200–299</span><div><strong>Fase 3 · Portais</strong><p>Dois portais transportam a cobra. Eles duram 15 segundos e, após uma pausa curta, reaparecem em outros lugares.</p></div></li>
-                    <li><span class="phase-score">300–399</span><div><strong>Fase 4 · Poção</strong><p>A poção roxa faz a cobra encolher em até cinco segmentos. Pegue-a antes que suma.</p></div></li>
-                    <li><span class="phase-score">400–499</span><div><strong>Fase 5 · Paredes móveis</strong><p>Quatro paredes aparecem no centro e mudam de lugar a cada 15 segundos.</p></div></li>
-                    <li><span class="phase-score">500+</span><div><strong>Sobrevivência</strong><p>A cobra acelera 10% a cada 50 pontos. As novidades das fases anteriores continuam no jogo.</p></div></li>
+                    <li><span class="phase-score">0–99</span><div><strong data-i18n="phaseOne">Fase 1 · Começo</strong><p data-i18n="phaseOneDescription">Três frutas aparecem no tabuleiro. Cada fruta some após 10 segundos se não for comida.</p></div></li>
+                    <li><span class="phase-score">100–199</span><div><strong data-i18n="phaseTwo">Fase 2 · Bombas</strong><p data-i18n="phaseTwoDescription">Bombas aparecem por 8 segundos. Encostar em uma encerra a partida.</p></div></li>
+                    <li><span class="phase-score">200–299</span><div><strong data-i18n="phaseThree">Fase 3 · Portais</strong><p data-i18n="phaseThreeDescription">Dois portais transportam a cobra. Eles duram 15 segundos e, após uma pausa curta, reaparecem em outros lugares.</p></div></li>
+                    <li><span class="phase-score">300–399</span><div><strong data-i18n="phaseFour">Fase 4 · Poção</strong><p data-i18n="phaseFourDescription">A poção roxa faz a cobra encolher em até cinco segmentos. Pegue-a antes que suma.</p></div></li>
+                    <li><span class="phase-score">400–499</span><div><strong data-i18n="phaseFive">Fase 5 · Paredes móveis</strong><p data-i18n="phaseFiveDescription">Quatro paredes aparecem no centro e mudam de lugar a cada 15 segundos.</p></div></li>
+                    <li><span class="phase-score">500+</span><div><strong data-i18n="survival">Sobrevivência</strong><p data-i18n="survivalDescription">A cobra acelera 10% a cada 50 pontos. As novidades das fases anteriores continuam no jogo.</p></div></li>
                 </ol>
             </section>
         </section>
@@ -69,15 +88,15 @@
         <!-- Partida e placar -->
         <section id="game-screen" class="screen game-screen" aria-labelledby="game-title" hidden>
             <div class="game-header">
-                <button id="game-back-button" class="back-button" type="button">← Voltar</button>
+                <button id="game-back-button" class="back-button" type="button" data-i18n="back">← Voltar</button>
             </div>
-            <h1 id="game-title">Jogo da Cobrinha</h1>
+            <h1 id="game-title" data-i18n="gameTitle">Jogo da Cobrinha</h1>
             <div id="scoreboard">
-                <div class="score-box">Pontos: <span id="score">0</span></div>
-                <div class="score-box">Recorde: <span id="high-score">0</span></div>
+                <div class="score-box"><span data-i18n="score">Pontos:</span> <span id="score">0</span></div>
+                <div class="score-box"><span data-i18n="highScore">Recorde:</span> <span id="high-score">0</span></div>
             </div>
             <canvas id="gameCanvas" width="400" height="400"></canvas>
-            <div id="game-over-text" role="status" aria-live="polite">Game Over! Pressione ESPAÇO para reiniciar.</div>
+            <div id="game-over-text" role="status" aria-live="polite" data-i18n="gameOverRestart">Game Over! Pressione ESPAÇO para reiniciar.</div>
         </section>
     </main>
 
