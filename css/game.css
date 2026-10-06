@@ -3,6 +3,12 @@
     gap: 18px;
 }
 
+.game-header {
+    width: min(400px, 100%);
+    display: flex;
+    justify-content: flex-start;
+}
+
 .game-screen h1 {
     color: var(--lime);
     font-size: 2rem;

@@ -13,6 +13,7 @@ const gameScreen = document.getElementById("game-screen");
 const playButton = document.getElementById("play-button");
 const howToButton = document.getElementById("how-to-button");
 const backButton = document.getElementById("back-button");
+const gameBackButton = document.getElementById("game-back-button");
 const tileCount = canvas.width / GAME_CONFIG.gridSize;
 const level = createLevelSystem(tileCount);
 const render = createRenderer(canvas, GAME_CONFIG);
@@ -249,6 +250,18 @@ howToButton.addEventListener("click", () => {
 backButton.addEventListener("click", () => {
     howToScreen.hidden = true;
     menuScreen.hidden = false;
+    playButton.focus();
+});
+
+gameBackButton.addEventListener("click", () => {
+    clearInterval(state.gameInterval);
+    state.gameStarted = false;
+    state.isMoving = false;
+    state.isPaused = false;
+    state.pauseStartedAt = null;
+    gameScreen.hidden = true;
+    menuScreen.hidden = false;
+    playButton.focus();
 });
 
 // ===== Preparacao da tela inicial =====

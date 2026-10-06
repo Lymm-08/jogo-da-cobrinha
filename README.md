@@ -15,6 +15,7 @@ Depois, acesse <http://localhost:8000> no navegador.
 ## Como jogar
 
 - Selecione **Jogar** no menu e use as setas para mover a cobra.
+- Use **← Menu** para sair da partida e voltar ao menu; no guia, use o mesmo botão para retornar.
 - Pressione **Espaço** para pausar; escolha uma direção para continuar.
 - Cada fruta vale 10 pontos e faz a cobra crescer. Há até três frutas no tabuleiro, cada uma por 10 segundos.
 - As bordas conectam os lados opostos do tabuleiro.
