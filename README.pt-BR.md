@@ -6,7 +6,7 @@ Escolha entre Português (Brasil) e English (United States) no menu. A preferên
 
 ## Executar
 
-**[Acesse o site completo aqui]([SEU_LINK_DO_GITHUB_PAGES_AQUI](https://lymm-08.github.io/jogo-da-cobrinha/))**
+**[Acesse o site completo aqui]([(https://lymm-08.github.io/jogo-da-cobrinha/)])**
 
 ## Capturas de tela
 
