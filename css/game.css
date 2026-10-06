@@ -4,7 +4,8 @@
 }
 
 .game-header {
-    width: min(400px, 100%);
+    width: 100%;
+    max-width: 760px;
     display: flex;
     justify-content: flex-start;
 }
