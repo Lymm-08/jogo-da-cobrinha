@@ -4,7 +4,7 @@ A browser-based snake game built with vanilla HTML, CSS, and JavaScript. It feat
 
 Choose between Portuguese (Brazil) and English (United States) from the menu. Your choice is saved in the browser and translates the menu, guide, and in-game messages.
 
-Português: [README.pt-BR.md](README.pt-BR.md)
+Portuguese: [README.pt-BR.md](README.pt-BR.md)
 
 ## Run the game
 
